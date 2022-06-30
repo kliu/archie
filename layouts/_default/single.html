@@ -5,29 +5,40 @@
 			<h1 class="title">{{ .Title }}</h1>
 			<div class="meta">Posted on {{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
 		</div>
+
 		{{ if isset .Params "tldr" }}
 		<div class="tldr">
 			<strong>tl;dr:</strong>
 			{{ .Params.tldr }}
-		</div>{{ end }}
+		</div>
+		{{ end }}
 
-		<section class="body">
-			{{ .Content }}
-		</section>
+		{{ if and (gt .WordCount 400 ) (.Params.toc) }}
+		<aside>{{ .TableOfContents }}</aside>
+		{{ end }}
 
-		<div class="post-tags">
+		<section class="body">{{ .Content }}</section>
+
+		<div>
 			{{ if ne .Type "page" }}
-			{{ if gt .Params.tags 0 }}
-			<nav class="nav tags">
-				<ul class="tags">
+			<nav class="nav">
+				<ul>
+					{{ if isset .Params "categories" }}
+					<li class="category"><a href="{{ "/categories/" | relLangURL }}{{ .Params.categories | urlize }}">{{ .Params.categories }}</a></li>
+					{{ end }}
 					{{ range .Params.tags }}
-					<li><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
+					<li class="tag"><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ . }}</a></li>
 					{{ end }}
 				</ul>
 			</nav>
 			{{ end }}
-			{{ end }}
 		</div>
 	</article>
 </main>
+{{ if .Page.Store.Get "hasMermaid" }}
+<script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+<script>
+	mermaid.initialize({ startOnLoad: true });
+</script>
+{{ end }}
 {{ end }}
