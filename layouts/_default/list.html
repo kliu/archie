@@ -5,7 +5,7 @@
 <h1 class="page-title">All Articles</h1>
 {{ end }}
 
-<ul>
+<ul class="term">
 	{{- range .Data.Pages -}}
 		{{- if (not (in (.Site.Params.excludedTypes | default (slice "page")) .Type)) -}}
 		<li class="post">

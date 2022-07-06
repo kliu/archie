@@ -22,7 +22,7 @@
 		<div>
 			{{ if ne .Type "page" }}
 			<nav class="nav">
-				<ul>
+				<ul class="term">
 					{{ if isset .Params "categories" }}
 					<li class="category"><a href="{{ "/categories/" | relLangURL }}{{ .Params.categories | urlize }}">{{ .Params.categories }}</a></li>
 					{{ end }}

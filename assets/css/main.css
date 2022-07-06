@@ -18,9 +18,9 @@
 html {
   color: var(--textColor);
   background-color: var(--backgroundColor);
-  font-family: 'Roboto Mono', monospace;
-  font-size: 15px;
-  line-height: 1.6em;
+  font-family: 'Ysabeau', 'LXGW WenKai Mono Lite';
+  font-size: 16px;
+  line-height: 1.5em;
 }
 
 body{
@@ -33,13 +33,12 @@ body{
 }
 
 p {
-  font-family: 'Fira Sans', sans-serif;
-  line-height: 1.5;
+  line-height: 1.6em;
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-size: 1.2rem;
-  margin-top: 2em;
+  margin-top: 1.8rem;
 }
 /* h1::before { color: var(--maincolor); content: '# '; }
 h2::before { color: var(--maincolor); content: '## '; }
@@ -65,6 +64,7 @@ blockquote {
   color: #737373;
   margin: 0;
   padding-left: 1em;
+  font-style: italic;
 }
 
 a {
@@ -77,26 +77,34 @@ a:hover {
     color: white;
 }
 
-ul {
+ul.term {
   list-style: none;
   padding-left: 2ch;
 }
-ul li {
+ul.term li {
   text-indent: -2ch;
 }
-ul > li::before {
-  content: '* ';
+ul.term li::before {
+  content: '• ';
   font-weight: bold;
 }
-li.post::before{
+ul.term li.post::before{
   content: "> ";
   /* content: "→ ";   */
 }
-li.category::before{
+ul.term li.category::before{
   content: "📑 ";
 }
-li.tag::before{
+ul.term li.tag::before{
   content: "📚 ";
+}
+
+#TableOfContents ul {
+  list-style: none;
+  padding-left: 2ch;
+}
+#TableOfContents ul li {
+  text-indent: -2ch;
 }
 #TableOfContents li::before {
   content: '- ';
@@ -117,11 +125,11 @@ figure {
 figure img {
   max-height: 500px;
 }
-@media screen and (min-width: 600px) {
+/* @media screen and (min-width: 600px) {
   figure {
     padding: 0 40px;
   }
-}
+} */
 figure h4 {
   font-size: 1rem;
   margin: 0;
@@ -136,6 +144,8 @@ svg.feather {
 
 /* Code blocks */
 code {
+  font-family: 'LXGW WenKai Mono Lite';  
+  font-size: 90%;
   background-color: #ececec;
   padding: .1em .2em;
   text-decoration: bold;  
@@ -149,7 +159,7 @@ pre {
 pre code {
   background-color: transparent;
   color: inherit;
-  font-size: 100%;
+  font-size: 90%;
   padding: 0;
 }
 .highlight pre ::selection {
@@ -162,6 +172,7 @@ pre code {
 }
 .highlight pre code[class*="language-"] {
   -webkit-overflow-scrolling: touch;
+  overflow-x: auto;
 }
 .highlight pre code[class*="language-"]::before {
   background: var(--maincolor);
@@ -196,10 +207,11 @@ header {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin: 1em 0;
+  line-height: 2.2em;
+  margin: 1em 0 0 0;
 }
 header .main {
-  font-size: 1.5rem;
+  font-size: 1.8rem;
 }
 
 footer {
@@ -248,7 +260,6 @@ article .title {
 }
 
 .callout p {
-  font-family: 'IBM Plex Mono', monospace;
   margin: 0;
 }
 
@@ -276,3 +287,10 @@ article .title {
     background-color: #f9f2f4;
 }
 
+.pagination .page-prev {
+  float:left;
+}
+
+.pagination .page-next {
+  float:right;
+}

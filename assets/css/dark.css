@@ -7,3 +7,6 @@
 code {
   color: var(--backgroundColor);
 }
+pre {
+  color: var(--backgroundColor);
+}

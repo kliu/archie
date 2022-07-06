@@ -9,7 +9,7 @@
 
 {{ $data := .Data }}
 <div>
-	<ul>
+	<ul class="term" >
 		{{ range $key, $value := .Data.Terms.ByCount }}
 		{{ $size := (add (mul (div $value.Count $biggest) (sub $max $min)) $min) }}
 		{{ $size := (cond (eq $biggest $smallest) $min $size) }}
