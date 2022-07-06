@@ -15,7 +15,7 @@
 				{{ range $paginator.Pages }}
 				<section class="list-item">
 					<h1 class="title"><a href="{{ .RelPermalink }}">{{.Title}}</a></h1>
-					<span class="meta">{{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</span>
+					<span class="meta">{{ .Date | time.Format ":date_medium" }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</span>
 					<br><div class="description">
 						{{ if isset .Params "description" }}
 						{{ .Description }}

@@ -294,3 +294,15 @@ article .title {
 .pagination .page-next {
   float:right;
 }
+
+#search-input {
+  outline-color: invert;
+  outline-style: none;
+	outline-width: 0px;
+  border: 1px solid #ccc; 
+  border-radius: 3px;
+  padding: 5px 0px;
+  width: 50%;
+  font-size: 18px;
+  text-indent:5px
+}

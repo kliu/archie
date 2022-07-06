@@ -3,7 +3,7 @@
 	<article>
 		<div class="title">
 			<h1 class="title">{{ .Title }}</h1>
-			<div class="meta">Posted on {{ dateFormat "Jan 2, 2006" .Date }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
+			<div class="meta">Posted on {{ .Date | time.Format ":date_medium" }}{{ if .Draft }} <span class="draft-label">DRAFT</span> {{ end }}</div>
 		</div>
 
 		{{ if isset .Params "tldr" }}
@@ -36,7 +36,11 @@
 	</article>
 </main>
 {{ if .Page.Store.Get "hasMermaid" }}
+{{ if .Site.Params.useCDN | default false -}}
 <script src="https://cdn.jsdelivr.net/npm/mermaid/dist/mermaid.min.js"></script>
+{{- else -}}
+<script src="{{ .Site.BaseURL }}js/mermaid.min.js"></script>
+{{ end }}
 <script>
 	mermaid.initialize({ startOnLoad: true });
 </script>
