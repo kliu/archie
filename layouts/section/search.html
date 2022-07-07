@@ -3,14 +3,9 @@
 <input type="text" id="search-input" placeholder="" oninput="showSearchResults()">
 <ul id="search-result" class="term"></ul>
 {{ if .Site.Params.useCDN | default false -}}
-<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.9.0/min/lunr.stemmer.support.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.9.0/min/lunr.zh.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/lunr-languages@1.9.0/min/lunr.multi.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
 {{- else -}}
-<script src="{{ .Site.BaseURL }}js/lunr.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/lunr.stemmer.support.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/lunr.zh.min.js"></script>
-<script src="{{ .Site.BaseURL }}js/lunr.multi.min.js"></script>
+<script src="{{ .Site.BaseURL }}js/fuse.min.js"></script>
 {{ end }}
+<script src="{{ .Site.BaseURL }}js/search.js"></script>
 {{end}}
