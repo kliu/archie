@@ -1,6 +1,7 @@
 {{ define "main" }}
 <h1 class="page-title">Search</h1>
-<input type="text" id="search-input" placeholder="" oninput="showSearchResults()">
+<input type="text" id="search-input" placeholder="" onkeydown = "if (event.keyCode == 13) document.getElementById('search-button').click()"  >
+<button type="submit" id="search-button" onclick="showSearchResults()"><i data-feather='search'></i></button>
 <ul id="search-result" class="term"></ul>
 {{ if .Site.Params.useCDN | default false -}}
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.0/fuse.min.js"></script>
