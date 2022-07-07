@@ -33,6 +33,23 @@
 			</nav>
 			{{ end }}
 		</div>
+		{{ if or (.PrevInSection) (.NextInSection) }}
+		<br/>
+		<div class="pagination">
+			<span class="page-item page-prev">
+				{{if .PrevInSection}}
+				<a {{ if .PrevInSection }}href="{{ .PrevInSection.Permalink }}" {{ end }} class="page-link" aria-label="Previous"><span
+						aria-hidden="true">← Prev</span></a>
+				{{ end }}
+			</span>
+			<span class="page-item page-next">
+				{{if .NextInSection}}
+				<a {{ if .NextInSection }}href="{{ .NextInSection.Permalink }}" {{ end }} class="page-link" aria-label="Next"><span
+						aria-hidden="true">Next →</span></a>
+				{{ end }}
+			</span>
+		</div>
+		{{ end }}
 	</article>
 </main>
 {{ if .Page.Store.Get "hasMermaid" }}

@@ -8,7 +8,7 @@
 		{{ end }}
 		|
 		{{ if .Site.Params.search | default true -}}
-		<a href="/search"><i data-feather="search"></i></a>
+		<a href="{{ .Site.Params.searchUrl }}"><i data-feather="search"></i></a>
 		{{ end }}
 		{{ if eq .Site.Params.mode "toggle" -}}
 		<a id="dark-mode-toggle" onclick="toggleTheme()" href=""></a>
