@@ -1,12 +1,13 @@
 /* Markdown */
 :root{
---maincolor: #134857;
+--maincolor: #fa7e23;
 --backgroundColor: whitesmoke;
 --textColor: #202124;
 --bordercl: #737373;
---metaColor: #999;
-
---callouctcolor:dodgerblue;
+--metaColor: #999999;
+--codeBkColor: #ececec;
+--calloutBkColor: #497568;
+--calloutColor: white;
 }
 
 ::selection {
@@ -113,7 +114,7 @@ ul.term li.tag::before{
 
 /* Images */
 img {
-  border: 1px solid #ececec;
+  border: 1px solid var(--codeBkColor);
   max-width: 100%;
 }
 figure {
@@ -146,12 +147,12 @@ svg.feather {
 code {
   font-family: 'LXGW WenKai Mono Lite';  
   font-size: 90%;
-  background-color: #ececec;
+  background-color: var(--codeBkColor);
   padding: .1em .2em;
   text-decoration: bold;  
 }
 pre {
-  background-color: #ececec;
+  background-color: var(--codeBkColor);
   line-height: 1.4;
   overflow-x: auto;
   padding: 1em;
@@ -254,22 +255,9 @@ article .title {
 
 /* Callout */
 .callout {
-  background-color: var(--callouctcolor);
-  color: #fff;
+  background-color: var(--calloutBkColor);
+  color:  var(--calloutColor);
   padding: 1em;
-}
-
-.callout p {
-  margin: 0;
-}
-
-.callout a {
-  border-bottom: 3px solid #fff;
-}
-
-.callout a:hover {
-  background-color: #fff;
-  color: var(--callouctcolor);
 }
 
 .site-description {
