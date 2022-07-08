@@ -124,6 +124,7 @@ figure {
   max-width: 100%;
 }
 figure img {
+  border: 1px solid var(--codeBkColor);
   max-height: 500px;
 }
 /* @media screen and (min-width: 600px) {
