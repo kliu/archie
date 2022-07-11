@@ -1,13 +1,18 @@
 /* Markdown */
 :root{
 --maincolor: #fa7e23;
+--bordercl: #737373;
+--calloutBkColor: #497568;
+/* --maincolor: #FF83FF;
+--bordercl: #60F0A1;
+--calloutBkColor: #65DDFF; */
+
+
+--calloutColor: white;
 --backgroundColor: whitesmoke;
 --textColor: #202124;
---bordercl: #737373;
 --metaColor: #999999;
 --codeBkColor: #ececec;
---calloutBkColor: #497568;
---calloutColor: white;
 }
 
 ::selection {
